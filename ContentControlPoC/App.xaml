@@ -1,0 +1,15 @@
+﻿<Application x:Class="ContentControlPoC.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="Application.Common.Background">#001a1a</SolidColorBrush>
+        <SolidColorBrush x:Key="FirstTemplate.TextBlock.Foreground">#4dffff</SolidColorBrush>
+        <SolidColorBrush x:Key="SecondTemplate.TextBlock.Foreground">#ccffff</SolidColorBrush>
+        <SolidColorBrush x:Key="ThirdTemplate.TextBlock.Foreground">#1affa3</SolidColorBrush>
+
+        <Style x:Key="TextBlock.Common.Style" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </Application.Resources>
+</Application>

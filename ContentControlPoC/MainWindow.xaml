@@ -1,0 +1,48 @@
+﻿<Window
+    x:Class="ContentControlPoC.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    Background="{DynamicResource Application.Common.Background}"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate x:Key="FirstTemplate">
+            <TextBlock
+                Foreground="{DynamicResource FirstTemplate.TextBlock.Foreground}"
+                Style="{DynamicResource TextBlock.Common.Style}"
+                Text="First Template" />
+        </DataTemplate>
+        <DataTemplate x:Key="SecondTemplate">
+            <TextBlock
+                Foreground="{DynamicResource SecondTemplate.TextBlock.Foreground}"
+                Style="{DynamicResource TextBlock.Common.Style}"
+                Text="Second Template" />
+        </DataTemplate>
+        <DataTemplate x:Key="ThirdTemplate">
+            <TextBlock
+                Foreground="{DynamicResource ThirdTemplate.TextBlock.Foreground}"
+                Style="{DynamicResource TextBlock.Common.Style}"
+                Text="Third Template" />
+        </DataTemplate>
+        <Style x:Key="ContentControl.Style" TargetType="{x:Type ContentControl}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=CurrentDataTemplate}" Value="1">
+                    <Setter Property="ContentTemplate" Value="{DynamicResource FirstTemplate}" />
+                </DataTrigger>                
+                <DataTrigger Binding="{Binding Path=CurrentDataTemplate}" Value="2">
+                    <Setter Property="ContentTemplate" Value="{DynamicResource SecondTemplate}" />
+                </DataTrigger>                
+                <DataTrigger Binding="{Binding Path=CurrentDataTemplate}" Value="3">
+                    <Setter Property="ContentTemplate" Value="{DynamicResource ThirdTemplate}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ContentControl Style="{StaticResource ContentControl.Style}" />
+    </Grid>
+</Window>
